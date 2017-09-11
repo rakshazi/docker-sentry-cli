@@ -21,8 +21,6 @@ RUN apk add --no-cache --virtual .build-deps \
 	&& rm -rf /tmp/* \
 	&& rm -rf /root/.cargo \
 	&& apk del .build-deps \
-	&& apk add --no-cache curl llvm-libunwind openssl \
-    && printf "#!/usr/bin/env sh\nexec /usr/local/bin/sentry-cli \$@" > /docker-entrypoint.sh \
-    && chmod +x /docker-entrypoint.sh
+	&& apk add --no-cache curl llvm-libunwind openssl
 
-ENTRYPOINT "/docker-entrypoint.sh"
+CMD ["/usr/local/bin/sentry-cli"]
