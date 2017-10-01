@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV SENTRY_VERSION="1.19.1"
+ENV SENTRY_VERSION="1.20.0"
 
 RUN apk add --no-cache --virtual .build-deps \
 		build-base \
